@@ -6,7 +6,7 @@
 #    By: mcourtoi <mcourtoi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/24 23:20:21 by mcourtoi          #+#    #+#              #
-#    Updated: 2023/05/17 17:25:47 by mcourtoi         ###   ########.fr        #
+#    Updated: 2023/05/20 23:21:18 by mcourtoi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,7 @@ RM			=	rm -rf
 ######################################
 #             EXECUTABLE             #
 ######################################
-NAME		=	zombie
+NAME		=	fixed
 
 #######################################
 #             DIRECTORIES             #
@@ -34,9 +34,7 @@ PRV_DIR		=	private
 #            SOURCE FILES            #
 ######################################
 SRC			=						\
-				class/Zombie.cpp	\
-				newZombie.cpp		\
-				randomChump.cpp		\
+				class/Fixed.cpp		\
 				main.cpp
 
 ######################################
@@ -56,6 +54,11 @@ CXXFLAGS	+=	-MMD -MP
 CXXFLAGS	+=	-Wshadow
 CXXFLAGS	+=	-std=c++98
 CXXFLAGS	+=	-I${PRV_DIR}
+
+ifeq (${DEBUG}, 1)
+	CXXFLAGS	+=	-g
+	CXXFLAGS	+=	-DDEBUG=1
+endif
 
 #######################################
 #                RULES                #
